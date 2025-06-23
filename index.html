@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fuggan's Birthday Countdown</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Countdown to Fuggan's Birthday 🎉</h1>
+    <p id="countdown"></p>
+    <p class="msg">Bas thoda sa intezaar aur... phir tumhara din aa jayega 💖</p>
+    <p class="from">– From your Nishu 💌</p>
+  </div>
+
+  <script>
+    const countdown = () => {
+      const targetDate = new Date("June 24, 2025 00:00:00").getTime();
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+      if (diff < 0) {
+        document.getElementById("countdown").innerHTML = "🎂 It's Your Day, Fuggan! 🎂";
+      }
+    };
+
+    setInterval(countdown, 1000);
+  </script>
+</body>
+</html>
